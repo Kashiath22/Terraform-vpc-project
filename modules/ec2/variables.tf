@@ -19,3 +19,18 @@ variable "k-pub-tag-name" {
 }
 
 variable "k-pub-sg" {}
+
+variable "k-conn-type" {
+  type = string
+  default = "ssh"
+}
+
+variable "k-key-path" {
+  type = string
+  default = "./kashinath-us-west-1.pem"
+}
+
+variable "k-ec2-user" {
+  type = string
+  default = "ec2-user"
+}

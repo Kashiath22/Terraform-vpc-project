@@ -7,6 +7,11 @@ module "k-public-subnet" {
   kvpcid = module.k-vpc.kvpcid
 }
 
+module "k-private-subnet" {
+  source = "./modules/private_subnet"
+  kvpcid = module.k-vpc.kvpcid
+}
+
 module "k-security-group" {
   source = "./modules/security_groups"
   kvpcid = module.k-vpc.kvpcid
@@ -25,12 +30,16 @@ module "k-route-table" {
   source = "./modules/route_tables"
   kvpcid = module.k-vpc.kvpcid
   k-igw-id = module.k-igw.k-igw-id
+  k-nat-id = module.k-nat.k-nat-id
 }
 
 module "k-public-rt-asso" {
   source ="./modules/route_association"
   k-pub-sub-id = module.k-public-subnet.k-pub-sub-id
   k-pub-rt-id = module.k-route-table.k-pub-rt-id
+  k-pvt-sub-id = module.k-private-subnet.k-pvt-sub-id
+  k-pvt-rt-id = module.k-route-table.k-pvt-rt-id
+
 
 }
 
@@ -41,3 +50,9 @@ module "k-public-ec2" {
   k-pub-sg = module.k-security-group.k-pub-sg
 }
 
+module "k-nat" {
+  source = "./modules/nat"
+  k-pub-sub-id = module.k-public-subnet.k-pub-sub-id
+  k-eip = module.k-eip.k-eip
+  k-igw-id = module.k-igw.k-igw-id
+}

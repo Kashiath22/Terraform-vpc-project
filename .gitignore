@@ -15,3 +15,7 @@ crash.log
 #any log file
 
 *.log
+
+#ignore all the pem files
+
+*.pem

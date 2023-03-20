@@ -10,19 +10,19 @@ resource "aws_instance" "k-pub-ec2" {
 
   depends_on = [var.k-pub-sg]
 
-#   provisioner "remote-exec" {
-#     inline = [
-#       "sudo yum update -y",
-#       "sudo yum install -y awscli",
-#       "aws configure set default.region us-east"
-#     ]
-#   }
+  provisioner "remote-exec" {
+    inline = [
+      "sudo yum update -y",
+      "sudo yum install -y awscli",
+      "aws configure set default.region us-east"
+    ]
+  }
 
-#   connection {
-#     type        = "ssh"
-#     private_key = file("./kashinath-us-west-1.pem")
-#     user        = "ec2-user"
-#     host        = self.public_ip
-#   }
+  connection {
+    type        = var.k-conn-type
+    private_key = file(var.k-key-path)
+    user        = var.k-ec2-user
+    host        = self.public_ip
+  }
 
 }
