@@ -9,7 +9,7 @@ pipeline {
     agent any
     
     environment {
-        EC2_PRIVATE_KEY = credentials('jenkins-pem-key').getPrivateKey()
+        EC2_PRIVATE_KEY = credentials('jenkins-pem-key')
     }
     
     stages {
