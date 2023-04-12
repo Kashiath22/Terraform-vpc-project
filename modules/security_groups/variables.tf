@@ -12,6 +12,17 @@ variable "pub-ing-port" {
   default = 22
 }
 
+variable "pub-ing-port-http" {
+  default = 80
+}
+variable "pub-ing-port-https" {
+  default = 443
+}
+
+variable "pub-ing-port-webapp" {
+  default = 3000
+}
+
 variable "pub-ing-protocol" {
   default = "tcp"
 }
@@ -25,7 +36,7 @@ variable "pub-egr-port" {
 }
 
 variable "pub-egr-protocol" {
-  default = "tcp"
+  default = "-1"
 }
 
 variable "pub-egr-cidr" {

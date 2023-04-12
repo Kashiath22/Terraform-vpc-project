@@ -1,5 +1,5 @@
 variable "ami" {
-  default = "ami-0925fd223898ee5ba"
+  default = "ami-006dcf34c09e50022"
 }
 
 variable "instance-type" {
@@ -11,7 +11,7 @@ variable "k-pub-sub-id" {}
 variable "k-pub-sg-id" {}
 
 variable "key-name" {
-  default = "kashinath-us-west-1"
+  default = "kashinath-jenkins-project"
 }
 
 variable "k-pub-tag-name" {
@@ -27,7 +27,7 @@ variable "k-conn-type" {
 
 variable "k-key-path" {
   type = string
-  default = "./kashinath-us-west-1.pem"
+  default = "./kashinath-jenkins-project.pem"
 }
 
 variable "k-ec2-user" {

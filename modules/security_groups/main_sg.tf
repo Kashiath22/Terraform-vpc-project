@@ -5,8 +5,30 @@ resource "aws_security_group" "k-public-sg" {
 
 
   ingress {
+    description = "Allow conn to ssh"
     to_port     = var.pub-ing-port
     from_port   = var.pub-ing-port
+    protocol    = "${var.pub-ing-protocol}"
+    cidr_blocks = [var.pub-ing-cidr]
+  }
+    ingress {
+    description = "http"
+    to_port     = var.pub-ing-port-http
+    from_port   = var.pub-ing-port-http
+    protocol    = "${var.pub-ing-protocol}"
+    cidr_blocks = [var.pub-ing-cidr]
+  }
+    ingress {
+    description = "https"
+    to_port     = var.pub-ing-port-https
+    from_port   = var.pub-ing-port-https
+    protocol    = "${var.pub-ing-protocol}"
+    cidr_blocks = [var.pub-ing-cidr]
+  }
+    ingress {
+    description = "webapp"
+    to_port     = var.pub-ing-port-webapp
+    from_port   = var.pub-ing-port-webapp
     protocol    = "${var.pub-ing-protocol}"
     cidr_blocks = [var.pub-ing-cidr]
   }
