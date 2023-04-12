@@ -27,7 +27,7 @@ variable "k-conn-type" {
 
 variable "k-key-path" {
   type = string
-  default = "./kashinath-jenkins-project.pem"
+
 }
 
 variable "k-ec2-user" {

@@ -48,6 +48,11 @@ module "k-public-ec2" {
   k-pub-sub-id = module.k-public-subnet.k-pub-sub-id
   k-pub-sg-id = module.k-security-group.k-pub-sg-id
   k-pub-sg = module.k-security-group.k-pub-sg
+  k-key-path= var.k-key-path
+}
+
+variable "k-key-path" {
+  default = ""
 }
 
 module "k-nat" {

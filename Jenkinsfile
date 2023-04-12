@@ -26,7 +26,7 @@ pipeline {
                 script {
                     // if (params.ACTION == 'apply') {
                         sh 'terraform init'
-                        sh 'terraform apply -auto-approve -var "private_key=${EC2_PRIVATE_KEY}"'
+                        sh 'terraform apply -auto-approve -var "k-key-path=${EC2_PRIVATE_KEY}"'
                     if (params.ACTION == 'destroy') {
                         sh 'terraform destroy -auto-approve'
                     } else {
