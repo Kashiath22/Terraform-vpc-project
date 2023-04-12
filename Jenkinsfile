@@ -18,7 +18,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'pipeline-2', url: 'https://github.com/kashinath220598/Terraform-vpc-project.git'
+                git branch: 'master', url: 'https://github.com/kashinath220598/Terraform-vpc-project.git'
             }
         }
         stage('Terraform') {
