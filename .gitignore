@@ -1,0 +1,23 @@
+#ignore these file 
+
+*.tfstate
+*.tfstate.backup
+*.tfplan
+
+#ignore any .terraform sub-derectories
+
+**/.terraform/*
+
+#ignore any crash log file 
+
+crash.log
+
+#any log file
+
+*.log
+
+#ignore all the pem files
+
+*.pem
+
+*.terraform*
