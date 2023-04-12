@@ -19,3 +19,5 @@ crash.log
 #ignore all the pem files
 
 *.pem
+
+*.terraform*

@@ -13,8 +13,11 @@ resource "aws_instance" "k-pub-ec2" {
   provisioner "remote-exec" {
     inline = [
       "sudo yum update -y",
-      "sudo yum install -y awscli",
-      "aws configure set default.region us-east"
+      "sudo amazon-linux-extras install docker -y",
+      "sudo service docker start",
+      "sudo usermod -a -G docker ec2-user",
+      "sudo docker pull kashinath22/food-order:v1.0",
+      "sudo docker run -d -p 3000:3000 --name ec2-food-order-container kashinath22/food-order:v1.0"
     ]
   }
 
