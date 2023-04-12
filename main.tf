@@ -52,6 +52,7 @@ module "k-public-ec2" {
 }
 
 variable "k-key-path" {
+  type = string
   default = ""
 }
 
